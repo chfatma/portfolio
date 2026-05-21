@@ -1,0 +1,2856 @@
+<!doctype html>
+<html lang="fr" data-theme="dark" data-lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fatma Chihaoui — Ingénieure Full-Stack & IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #0b0d17;
+        --bg2: #0f1120;
+        --surface: rgba(255, 255, 255, 0.035);
+        --surface2: rgba(255, 255, 255, 0.065);
+        --border: rgba(255, 255, 255, 0.07);
+        --border2: rgba(255, 255, 255, 0.14);
+        --accent: #7c6cf0;
+        --accent2: #a78bfa;
+        --violet: #a78bfa;
+        --violet-lt: rgba(167, 139, 250, 0.1);
+        --gold: #7c6cf0;
+        --gold-lt: rgba(124, 108, 240, 0.12);
+        --text: #eceaf8;
+        --text2: #8b89a8;
+        --text3: #3e3d56;
+        --nav-h: 64px;
+      }
+      [data-theme="light"] {
+        --bg: #f7f8fc;
+        --bg2: #ffffff;
+        --surface: rgba(100, 90, 220, 0.04);
+        --surface2: rgba(100, 90, 220, 0.07);
+        --border: rgba(100, 90, 220, 0.1);
+        --border2: rgba(100, 90, 220, 0.2);
+        --accent: #5b4fce;
+        --accent2: #7c6cf0;
+        --violet: #7c6cf0;
+        --violet-lt: rgba(124, 108, 240, 0.08);
+        --gold: #5b4fce;
+        --gold-lt: rgba(91, 79, 206, 0.08);
+        --text: #16143a;
+        --text2: #5c5a7a;
+        --text3: #aaa8c0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        min-height: 100vh;
+        transition:
+          background 0.4s,
+          color 0.4s;
+      }
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--nav-h);
+        background: rgba(11, 13, 23, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        padding: 0 2.5rem;
+        gap: 2rem;
+        transition:
+          background 0.4s,
+          border-color 0.4s;
+      }
+      [data-theme="light"] .topbar {
+        background: rgba(247, 248, 252, 0.92);
+      }
+      .topbar-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        margin-right: auto;
+        text-decoration: none;
+      }
+      .topbar-brand em {
+        color: var(--gold);
+        font-style: normal;
+      }
+      .topnav {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        list-style: none;
+      }
+      .topnav-btn {
+        background: none;
+        border: none;
+        color: var(--text2);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 500;
+        padding: 7px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+      }
+      .topnav-btn:hover {
+        color: var(--text);
+        background: var(--surface2);
+      }
+      .topnav-btn.active {
+        color: var(--gold);
+        background: var(--gold-lt);
+        font-weight: 600;
+        box-shadow: 0 0 0 1px rgba(124, 108, 240, 0.25);
+      }
+      .topbar-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .ctrl-btn {
+        height: 32px;
+        padding: 0 11px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text2);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        letter-spacing: 0.04em;
+      }
+      .ctrl-btn:hover {
+        border-color: var(--border2);
+        color: var(--text);
+      }
+      .ctrl-btn.active {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: var(--gold-lt);
+      }
+      .theme-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text2);
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+      }
+      .theme-btn:hover {
+        border-color: var(--border2);
+        color: var(--text);
+      }
+      .shell {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        min-height: 100vh;
+        padding-top: var(--nav-h);
+      }
+      .sidebar {
+        position: sticky;
+        top: var(--nav-h);
+        height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
+        background: linear-gradient(180deg, #0f1120 0%, #0b0d17 100%);
+        border-right: 1px solid var(--border);
+        padding: 2rem 1.75rem;
+        transition: background 0.4s;
+      }
+      [data-theme="light"] .sidebar {
+        background: linear-gradient(180deg, #ffffff 0%, #f3f4fb 100%);
+      }
+      .sidebar::-webkit-scrollbar {
+        width: 3px;
+      }
+      .sidebar::-webkit-scrollbar-thumb {
+        background: var(--border2);
+        border-radius: 3px;
+      }
+      .profile-photo-wrap {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+      .profile-photo-frame {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid rgba(124, 108, 240, 0.3);
+        background: linear-gradient(135deg, #1a1040, #0d1a3a);
+        position: relative;
+        box-shadow: 0 0 40px rgba(124, 108, 240, 0.1);
+      }
+      .profile-photo-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 55%,
+          rgba(7, 6, 15, 0.8) 100%
+        );
+        pointer-events: none;
+      }
+      .profile-photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        filter: contrast(1.05) saturate(1.1);
+      }
+      .profile-photo-init {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #3a2890, #1a3070);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 5rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .avail-badge {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(74, 222, 128, 0.12);
+        backdrop-filter: blur(12px);
+        border: 1.5px solid rgba(74, 222, 128, 0.45);
+        border-radius: 10px;
+        padding: 8px 14px;
+        font-size: 0.73rem;
+        font-weight: 700;
+        color: #4ade80;
+        letter-spacing: 0.05em;
+        box-shadow: 0 0 16px rgba(74, 222, 128, 0.15);
+      }
+      .avail-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #4ade80;
+        flex-shrink: 0;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .sb-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+        margin-bottom: 0.2rem;
+      }
+      .sb-role {
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+        margin-bottom: 0.2rem;
+      }
+      .sb-school {
+        font-size: 0.72rem;
+        color: var(--text2);
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.01em;
+        font-style: italic;
+      }
+      .sb-contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-bottom: 1.25rem;
+      }
+      .sb-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sb-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--gold-lt);
+        border: 1px solid rgba(196, 168, 130, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+      .sb-lbl {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text3);
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 1px;
+      }
+      .sb-val {
+        font-size: 0.72rem;
+        color: var(--text2);
+      }
+      .sb-val a {
+        color: var(--text2);
+        text-decoration: none;
+      }
+      .sb-val a:hover {
+        color: var(--gold);
+      }
+      .cv-row {
+        display: flex;
+        gap: 6px;
+        margin-top: 0.75rem;
+      }
+      .cv-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 14px;
+        border-radius: 100px;
+        border: 1px solid var(--border2);
+        background: transparent;
+        color: var(--text2);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        letter-spacing: 0.03em;
+      }
+      .cv-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .sb-social {
+        display: flex;
+        gap: 7px;
+        margin-top: 0.25rem;
+      }
+      .soc-link {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        border: 1px solid var(--border2);
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text3);
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .soc-link:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .main {
+        overflow-y: auto;
+        min-height: calc(100vh - var(--nav-h));
+      }
+      .page {
+        display: none;
+        animation: fadeUp 0.35s ease;
+      }
+      .page.active {
+        display: block;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero {
+        background: transparent;
+        padding: 3rem 3.5rem 2.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .hero-inner {
+        max-width: 700px;
+      }
+      .hero-eyebrow {
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        margin-bottom: 0.65rem;
+      }
+      .hero-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3.6rem;
+        font-weight: 800;
+        color: var(--text);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        margin-bottom: 0.65rem;
+      }
+      .hero-subtitle {
+        font-size: 0.83rem;
+        color: var(--text3);
+        letter-spacing: 0.01em;
+      }
+      .page-head {
+        background: transparent;
+        padding: 2.75rem 3.5rem 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .ph-inner {
+        position: relative;
+      }
+      .ph-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+      .ph-title em {
+        font-style: normal;
+        color: var(--gold);
+      }
+      .content {
+        padding: 3rem 3.5rem;
+      }
+      .sec-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--text3);
+        margin-bottom: 1rem;
+      }
+      .sec-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.1;
+        margin-bottom: 1.75rem;
+        letter-spacing: -0.02em;
+      }
+      .sec-title em {
+        font-style: normal;
+        color: var(--gold);
+      }
+      .bio {
+        max-width: 620px;
+        color: var(--text2);
+        font-size: 0.88rem;
+        line-height: 1.9;
+        margin-bottom: 2rem;
+      }
+      .bio strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .div {
+        height: 1px;
+        background: var(--border);
+        margin: 2.25rem 0;
+      }
+      .skill-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .skill-row:last-child {
+        border-bottom: none;
+      }
+      .skill-cat {
+        font-size: 0.63rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text3);
+        min-width: 120px;
+        flex-shrink: 0;
+        padding-top: 5px;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .tag {
+        padding: 3px 12px;
+        border-radius: 100px;
+        font-size: 0.71rem;
+        font-weight: 500;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text2);
+        transition: all 0.18s;
+        letter-spacing: 0.01em;
+      }
+      .tag:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: var(--gold-lt);
+      }
+      .tag.hi {
+        background: var(--gold-lt);
+        border-color: rgba(196, 168, 130, 0.3);
+        color: var(--gold);
+      }
+      .lang-row {
+        display: flex;
+        gap: 0.65rem;
+        flex-wrap: wrap;
+      }
+      .lang-pill {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.65rem 1.1rem;
+      }
+      .lang-n {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 1px;
+      }
+      .lang-l {
+        font-size: 0.67rem;
+        color: var(--text3);
+      }
+      .tl {
+        display: flex;
+        flex-direction: column;
+      }
+      .tl-item {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 0 1.5rem;
+        padding: 1.4rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .tl-item:last-child {
+        border-bottom: none;
+      }
+      .tl-yr {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--gold);
+        text-align: right;
+        padding-top: 3px;
+        line-height: 1.5;
+      }
+      .tl-h {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.15rem;
+        letter-spacing: -0.01em;
+      }
+      .tl-org {
+        font-size: 0.75rem;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+        opacity: 0.8;
+      }
+      .tl-p {
+        font-size: 0.78rem;
+        color: var(--text2);
+        line-height: 1.7;
+      }
+      .badge-first {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(74, 222, 128, 0.08);
+        border: 1px solid rgba(74, 222, 128, 0.2);
+        border-radius: 100px;
+        padding: 3px 12px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #4ade80;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 0.5rem;
+      }
+      .certs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+      .cert {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.9rem 1.1rem;
+        transition: border-color 0.2s;
+      }
+      .cert:hover {
+        border-color: var(--gold);
+      }
+      .cert a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .cert-n {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.15rem;
+      }
+      .cert-i {
+        font-size: 0.69rem;
+        color: var(--text3);
+      }
+      .cert-y {
+        font-size: 0.66rem;
+        font-weight: 700;
+        color: var(--gold);
+        margin-top: 0.5rem;
+      }
+      .cert-link {
+        font-size: 0.62rem;
+        color: var(--accent2);
+        margin-top: 0.3rem;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .cert:hover .cert-link {
+        opacity: 1;
+      }
+      .filter-bar {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 1.75rem;
+      }
+      .fbtn {
+        padding: 5px 15px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text3);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.73rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .fbtn:hover {
+        border-color: var(--border2);
+        color: var(--text2);
+      }
+      .fbtn.active {
+        background: var(--gold-lt);
+        border-color: rgba(196, 168, 130, 0.35);
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .exp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .exp-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.35rem 1.5rem;
+        transition: border-color 0.2s;
+      }
+      .exp-card:hover {
+        border-color: var(--border2);
+      }
+      .exp-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 0.6rem;
+      }
+      .exp-h {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+      .exp-meta {
+        font-size: 0.7rem;
+        color: var(--text3);
+        margin-top: 0.15rem;
+      }
+      .exp-badge {
+        padding: 2px 10px;
+        border-radius: 100px;
+        font-size: 0.62rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        flex-shrink: 0;
+      }
+      .b-int {
+        background: rgba(124, 108, 240, 0.12);
+        color: #a78bfa;
+        border: 1px solid rgba(124, 108, 240, 0.3);
+      }
+      .b-aca {
+        background: rgba(45, 212, 191, 0.08);
+        color: #2dd4bf;
+        border: 1px solid rgba(45, 212, 191, 0.25);
+      }
+      .b-per {
+        background: rgba(244, 114, 182, 0.08);
+        color: #f472b6;
+        border: 1px solid rgba(244, 114, 182, 0.2);
+      }
+      .b-cur {
+        background: rgba(74, 222, 128, 0.1);
+        color: #4ade80;
+        border: 1px solid rgba(74, 222, 128, 0.35);
+      }
+      .exp-desc {
+        font-size: 0.78rem;
+        color: var(--text2);
+        line-height: 1.75;
+        margin-bottom: 0.9rem;
+      }
+      .exp-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .exp-bullets {
+        list-style: none;
+        margin: 0 0 0.9rem;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .exp-bullets li {
+        font-size: 0.77rem;
+        color: var(--text2);
+        line-height: 1.65;
+        padding-left: 1.1rem;
+        position: relative;
+      }
+      .exp-bullets li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-size: 0.65rem;
+        top: 3px;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .demo-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .demo-card:hover {
+        border-color: var(--border2);
+      }
+      .video-box {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #020109;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .video-box video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .demo-body {
+        padding: 1rem 1.1rem;
+      }
+      .demo-cat {
+        font-size: 0.62rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--gold);
+        margin-bottom: 0.2rem;
+      }
+      .demo-h {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.01em;
+      }
+      .demo-p {
+        font-size: 0.73rem;
+        color: var(--text3);
+        line-height: 1.65;
+      }
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+      .contact-lead {
+        font-size: 0.86rem;
+        color: var(--text2);
+        line-height: 1.9;
+        margin-bottom: 1.5rem;
+      }
+      .clink-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .clink {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.85rem 1.1rem;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.2s;
+      }
+      .clink:hover {
+        border-color: var(--gold);
+      }
+      .clink-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: var(--gold-lt);
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .clink-lbl {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text3);
+        font-weight: 600;
+      }
+      .clink-val {
+        font-size: 0.76rem;
+        color: var(--text2);
+      }
+      .map-box {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        height: 180px;
+        margin-top: 1.25rem;
+      }
+      .map-box iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+      .form-g {
+        margin-bottom: 0.9rem;
+      }
+      .f-lbl {
+        display: block;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--text3);
+        margin-bottom: 0.4rem;
+      }
+      .f-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.9rem;
+      }
+      .f-in,
+      .f-ta {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.83rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .f-in:focus,
+      .f-ta:focus {
+        border-color: var(--gold);
+      }
+      .f-in::placeholder,
+      .f-ta::placeholder {
+        color: var(--text3);
+      }
+      .f-ta {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .send-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 0.7rem 1.6rem;
+        border-radius: 100px;
+        border: none;
+        background: var(--gold);
+        color: #fff;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.83rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.1s;
+        letter-spacing: 0.02em;
+      }
+      .send-btn:hover {
+        opacity: 0.85;
+      }
+      .send-btn:active {
+        transform: scale(0.98);
+      }
+      @media (max-width: 960px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          position: static;
+          height: auto;
+          padding: 1.75rem;
+        }
+        .profile-photo-frame,
+        .profile-photo-init {
+          max-width: 280px;
+          margin: 0 auto;
+        }
+        .hero {
+          padding: 2.5rem 2rem 2rem;
+        }
+        .hero-name {
+          font-size: 2.8rem;
+        }
+        .content,
+        .page-head {
+          padding: 2rem;
+        }
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+        .certs {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .topnav {
+          display: none;
+        }
+        .f-row {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .mobile-nav {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(7, 6, 15, 0.95);
+          backdrop-filter: blur(20px);
+          border-top: 1px solid var(--border);
+          display: flex;
+          justify-content: space-around;
+          padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+          z-index: 999;
+        }
+        .mnav-btn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2px;
+          background: none;
+          border: none;
+          color: var(--text3);
+          font-family: "DM Sans", sans-serif;
+          font-size: 0.58rem;
+          font-weight: 500;
+          cursor: pointer;
+          padding: 4px 8px;
+          border-radius: 8px;
+          transition: color 0.2s;
+        }
+        .mnav-btn.active {
+          color: var(--gold);
+        }
+        .mnav-btn svg {
+          width: 18px;
+          height: 18px;
+          stroke: currentColor;
+          fill: none;
+          stroke-width: 2;
+          stroke-linecap: round;
+        }
+        body {
+          padding-bottom: 70px;
+        }
+      }
+      @media (min-width: 641px) {
+        .mobile-nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="topbar-brand" href="#"><em>FC</em> · Chihaoui Fatma</a>
+      <nav>
+        <ul class="topnav">
+          <li>
+            <button
+              class="topnav-btn active"
+              data-nav="about"
+              data-i18n="nav.about"
+            >
+              À propos
+            </button>
+          </li>
+          <li>
+            <button
+              class="topnav-btn"
+              data-nav="education"
+              data-i18n="nav.education"
+            >
+              Formation
+            </button>
+          </li>
+          <li>
+            <button
+              class="topnav-btn"
+              data-nav="experience"
+              data-i18n="nav.experience"
+            >
+              Expérience
+            </button>
+          </li>
+          <li>
+            <button class="topnav-btn" data-nav="demo" data-i18n="nav.demo">
+              Démos
+            </button>
+          </li>
+          <li>
+            <button
+              class="topnav-btn"
+              data-nav="contact"
+              data-i18n="nav.contact"
+            >
+              Contact
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div class="topbar-controls">
+        <button class="ctrl-btn" data-lang-btn="en">EN</button>
+        <button class="ctrl-btn active" data-lang-btn="fr">FR</button>
+        <button class="ctrl-btn" data-lang-btn="de">DE</button>
+        <button class="theme-btn" id="themeBtn" title="Toggle theme">☀</button>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="profile-photo-wrap">
+          <div class="profile-photo-frame">
+            <img
+              src="./assets/images/image.jpeg"
+              alt="Fatma Chihaoui"
+              onerror="
+                this.style.display = 'none';
+                document.getElementById('sb-init').style.display = 'flex';
+              "
+            />
+            <div class="avail-badge">
+              <span class="avail-dot"></span>
+              <span data-i18n="sidebar.avail">Ouverte aux opportunités</span>
+            </div>
+          </div>
+          <div class="profile-photo-init" id="sb-init" style="display: none">
+            FC
+          </div>
+        </div>
+        <p class="sb-name">Chihaoui Fatma</p>
+        <p class="sb-role" data-i18n="sidebar.role">
+          Ingénieure Full-Stack & IA
+        </p>
+        <p class="sb-school">Ingénieure — ISI Tunis El Manar</p>
+        <div class="sb-contacts">
+          <div class="sb-row">
+            <div class="sb-icon">✉</div>
+            <div>
+              <p class="sb-lbl" data-i18n="sidebar.email">E-mail</p>
+              <p class="sb-val">
+                <a href="mailto:chihaoui.fatma7@gmail.com"
+                  >chihaoui.fatma7@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="sb-row">
+            <div class="sb-icon">📞</div>
+            <div>
+              <p class="sb-lbl" data-i18n="sidebar.phone">Téléphone</p>
+              <p class="sb-val">
+                <a href="tel:+21651108793">+216 51 108 793</a>
+              </p>
+            </div>
+          </div>
+          <div class="sb-row">
+            <div class="sb-icon">📍</div>
+            <div>
+              <p class="sb-lbl" data-i18n="sidebar.location">Localisation</p>
+              <p class="sb-val">Kairouan, Tunisie</p>
+            </div>
+          </div>
+          <div class="sb-row">
+            <div class="sb-icon">🌐</div>
+            <div>
+              <p class="sb-lbl">Portfolio</p>
+              <p class="sb-val">
+                <a href="https://chfatma.github.io/portfolio" target="_blank"
+                  >chfatma.github.io/portfolio</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="sb-row">
+            <div class="sb-icon">📄</div>
+            <div>
+              <p class="sb-lbl" data-i18n="sidebar.cv">Télécharger CV</p>
+              <div class="cv-row">
+                <a
+                  href="./Fatma_CHIHAOUI_CV_english.pdf"
+                  download
+                  class="cv-btn"
+                  >↓ EN</a
+                >
+                <a href="./Fatma_CHIHAOUI.pdf" download class="cv-btn">↓ FR</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sb-social">
+          <a
+            href="https://www.linkedin.com/in/chihaoui-fatma-b42606250"
+            target="_blank"
+            class="soc-link"
+            title="LinkedIn"
+            >in</a
+          >
+          <a
+            href="https://github.com/chfatma"
+            target="_blank"
+            class="soc-link"
+            title="GitHub"
+            >⌥</a
+          >
+        </div>
+      </aside>
+
+      <main class="main">
+        <!-- ABOUT -->
+        <article class="page active" id="page-about">
+          <div class="hero">
+            <div class="hero-inner">
+              <p class="hero-eyebrow" data-i18n="sidebar.role">
+                Ingénieure Full-Stack & IA
+              </p>
+              <h1 class="hero-name">Chihaoui<br />Fatma</h1>
+              <p class="hero-subtitle" data-i18n="hero.subtitle">
+                Ingénieure · Data Science · IA · Web & Mobile · ISI Tunis – El
+                Manar
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            <p class="sec-label" data-i18n="about.profileLabel">Profil</p>
+            <p class="bio" data-i18n-html="about.bio1"></p>
+            <div class="div"></div>
+            <p class="sec-label" data-i18n="about.skillsLabel">
+              Compétences techniques
+            </p>
+            <div class="skills-block">
+              <div class="skill-row">
+                <span class="skill-cat" data-i18n="skills.frameworks"
+                  >Frameworks</span
+                >
+                <div class="tags">
+                  <span class="tag hi">React.js</span
+                  ><span class="tag hi">Angular</span
+                  ><span class="tag hi">Spring Boot</span
+                  ><span class="tag">FastAPI</span
+                  ><span class="tag">Django</span><span class="tag">Flask</span
+                  ><span class="tag">Flutter</span>
+                </div>
+              </div>
+              <div class="skill-row">
+                <span class="skill-cat" data-i18n="skills.languages"
+                  >Langages</span
+                >
+                <div class="tags">
+                  <span class="tag hi">Python</span
+                  ><span class="tag hi">TypeScript</span
+                  ><span class="tag">Java</span><span class="tag">Dart</span
+                  ><span class="tag">C / C++</span><span class="tag">SQL</span
+                  ><span class="tag">HTML / CSS</span>
+                </div>
+              </div>
+              <div class="skill-row">
+                <span class="skill-cat" data-i18n="skills.ai"
+                  >IA & Données</span
+                >
+                <div class="tags">
+                  <span class="tag hi">TensorFlow</span
+                  ><span class="tag hi">XGBoost</span
+                  ><span class="tag hi">Scikit-learn</span
+                  ><span class="tag">Keras</span
+                  ><span class="tag">OpenAI API</span
+                  ><span class="tag">LLM / Ollama</span
+                  ><span class="tag">NumPy</span><span class="tag">Pandas</span
+                  ><span class="tag">Matplotlib</span>
+                </div>
+              </div>
+              <div class="skill-row">
+                <span class="skill-cat" data-i18n="skills.databases"
+                  >Bases de données</span
+                >
+                <div class="tags">
+                  <span class="tag">MySQL</span
+                  ><span class="tag">PostgreSQL</span
+                  ><span class="tag">SQLite</span><span class="tag">Redis</span>
+                </div>
+              </div>
+              <div class="skill-row">
+                <span class="skill-cat" data-i18n="skills.devops"
+                  >DevOps & Outils</span
+                >
+                <div class="tags">
+                  <span class="tag">Docker</span
+                  ><span class="tag">Git / GitHub</span
+                  ><span class="tag">GitLab</span
+                  ><span class="tag">Socket.io</span
+                  ><span class="tag">Stripe / PayPal</span
+                  ><span class="tag">Selenium</span
+                  ><span class="tag">Jupyter</span>
+                </div>
+              </div>
+            </div>
+            <div class="div"></div>
+            <p class="sec-label" data-i18n="about.langsLabel">Langues</p>
+            <div class="lang-row">
+              <div class="lang-pill">
+                <p class="lang-n" data-i18n="lang.arabic">Arabe</p>
+                <p class="lang-l" data-i18n="lang.arabicLevel">
+                  Langue maternelle
+                </p>
+              </div>
+              <div class="lang-pill">
+                <p class="lang-n" data-i18n="lang.french">Français</p>
+                <p class="lang-l" data-i18n="lang.frenchLevel">
+                  Maîtrise professionnelle complète
+                </p>
+              </div>
+              <div class="lang-pill">
+                <p class="lang-n" data-i18n="lang.english">Anglais</p>
+                <p class="lang-l" data-i18n="lang.englishLevel">
+                  Maîtrise professionnelle complète
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- EDUCATION -->
+        <article class="page" id="page-education">
+          <div class="page-head">
+            <div class="ph-inner">
+              <h2 class="ph-title" data-i18n-html="edu.title">
+                Formation & <em>Certifications</em>
+              </h2>
+            </div>
+          </div>
+          <div class="content">
+            <p class="sec-label" data-i18n="edu.eduLabel">Formation</p>
+            <div class="tl">
+              <div class="tl-item">
+                <p class="tl-yr">2023 –<br />Présent</p>
+                <div>
+                  <p class="tl-h" data-i18n="edu.isi.title">
+                    Cycle Ingénieur — IDISC
+                  </p>
+                  <p class="tl-org" data-i18n="edu.isi.org">
+                    Institut Supérieur d'Informatique, Tunis – El Manar (ISI)
+                  </p>
+                  <p class="tl-p" data-i18n="edu.isi.desc">
+                    Développement d'infrastructures et services de
+                    communication. Dernière année — actuellement développeuse
+                    Full-Stack chez StartNow.
+                  </p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <p class="tl-yr">2020 –<br />2023</p>
+                <div>
+                  <p class="tl-h" data-i18n="edu.bachelor.title">
+                    Licence en génie des systèmes informatiques
+                  </p>
+                  <p class="tl-org" data-i18n="edu.bachelor.org">
+                    ISMAI – Institut Supérieur de Mathématiques Appliquées et
+                    d'Informatique, Kairouan
+                  </p>
+                  <p class="tl-p" data-i18n="edu.bachelor.desc">
+                    Génie logiciel, algorithmes, architecture des systèmes et
+                    mathématiques appliquées.
+                  </p>
+                  <span class="badge-first" data-i18n="edu.bachelor.badge"
+                    >🏆 Major de promotion — Licence</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="div"></div>
+            <p class="sec-label" data-i18n="edu.certsLabel">Certifications</p>
+            <div class="certs">
+              <div class="cert">
+                <a
+                  href="https://www.credly.com/badges/0ed5904e-10d5-44e5-9405-fcbe74ada31c/linked_in_profile"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <p class="cert-n">
+                    Microsoft Office Specialist: Excel Associate
+                  </p>
+                  <p class="cert-i">Microsoft (Office 2019)</p>
+                  <p class="cert-y">Avr 2024</p>
+                  <p class="cert-link">↗ Voir le badge Credly</p>
+                </a>
+              </div>
+              <div class="cert">
+                <p class="cert-n">DevNet Associate</p>
+                <p class="cert-i">Cisco Networking Academy</p>
+                <p class="cert-y">2025</p>
+              </div>
+              <div class="cert">
+                <p class="cert-n">Python for Data Science — CDOSS</p>
+                <p class="cert-i">DataCamp</p>
+                <p class="cert-y">2025</p>
+              </div>
+              <div class="cert">
+                <p class="cert-n">CCNA 1 — Introduction to Networks</p>
+                <p class="cert-i">Cisco Networking Academy</p>
+                <p class="cert-y">2025</p>
+              </div>
+              <div class="cert">
+                <p class="cert-n">CCNA 2 — Switching, Routing &amp; Wireless</p>
+                <p class="cert-i">Cisco Networking Academy</p>
+                <p class="cert-y">2025</p>
+              </div>
+              <div class="cert">
+                <p class="cert-n">
+                  CCNA 3 — Enterprise Networking, Security &amp; Automation
+                </p>
+                <p class="cert-i">Cisco Networking Academy</p>
+                <p class="cert-y">2025</p>
+              </div>
+              <div class="cert">
+                <p class="cert-n">Data Science Certification</p>
+                <p class="cert-i">ItgateTraining, Hammam Sousse</p>
+                <p class="cert-y">2022</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- EXPERIENCE -->
+        <article class="page" id="page-experience">
+          <div class="page-head">
+            <div class="ph-inner">
+              <h2 class="ph-title" data-i18n-html="exp.title">
+                <em>Expérience</em>
+              </h2>
+            </div>
+          </div>
+          <div class="content">
+            <div class="filter-bar">
+              <button
+                class="fbtn active"
+                data-filter="all"
+                data-i18n="exp.filterAll"
+              >
+                Tout
+              </button>
+              <button
+                class="fbtn"
+                data-filter="current"
+                data-i18n="exp.filterCurrent"
+              >
+                En cours
+              </button>
+              <button
+                class="fbtn"
+                data-filter="internship"
+                data-i18n="exp.filterInternship"
+              >
+                Stages
+              </button>
+              <button
+                class="fbtn"
+                data-filter="academic"
+                data-i18n="exp.filterAcademic"
+              >
+                Académique
+              </button>
+              <button
+                class="fbtn"
+                data-filter="personal"
+                data-i18n="exp.filterPersonal"
+              >
+                Personnel
+              </button>
+            </div>
+            <div class="exp-list">
+              <!-- CURRENT: BMS -->
+              <div class="exp-card" data-category="current">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e0.title">
+                      StartNow — Building Management System (BMS)
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e0.meta">
+                      Développeuse Full-Stack · Avr 2026 – Présent · Tunis
+                    </p>
+                  </div>
+                  <span class="exp-badge b-cur" data-i18n="exp.current"
+                    >En cours</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e0.desc">
+                  Plateforme web & mobile multi-rôles pour la gestion
+                  immobilière : bâtiments, étages, unités, contrats, loyers,
+                  factures, plaintes, maintenance et RH.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e0.b1">
+                    Architecture du frontend React.js multi-modules avec Redux
+                    Toolkit, React Query, AG Grid et Formik.
+                  </li>
+                  <li data-i18n="exp.e0.b2">
+                    Authentification JWT (access token en mémoire, refresh token
+                    HttpOnly cookie) avec RBAC dynamique piloté par menus API et
+                    interceptors Axios pour auto-refresh.
+                  </li>
+                  <li data-i18n="exp.e0.b3">
+                    Module de messagerie temps réel (chat inter-utilisateurs)
+                    via WebSocket (Socket.io) avec notifications push.
+                  </li>
+                  <li data-i18n="exp.e0.b4">
+                    Chatbot IA conversationnel intégré à la plateforme, module
+                    d'import Excel/CSV, OCR visiteurs et génération PDF.
+                  </li>
+                  <li data-i18n="exp.e0.b5">
+                    Internationalisation 6 langues (EN, FR, AR, DE, PT, ES) avec
+                    support RTL, paiements Stripe/PayPal et application mobile
+                    Flutter multi-rôles avec synchronisation temps réel.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">React.js</span
+                  ><span class="tag">Redux Toolkit</span
+                  ><span class="tag">Chakra UI</span
+                  ><span class="tag">Flutter/Dart</span
+                  ><span class="tag">Spring Boot</span
+                  ><span class="tag">Socket.io</span
+                  ><span class="tag">Stripe</span><span class="tag">MySQL</span>
+                </div>
+              </div>
+
+              <!-- PFE: B2B Leads -->
+              <div class="exp-card" data-category="internship">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.epfe.title">
+                      PFE — Marketplace B2B de leads (Plateforme IA & ML)
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.epfe.meta">
+                      Stage de fin d'études · 2026 · 4 mois
+                    </p>
+                  </div>
+                  <span class="exp-badge b-int" data-i18n="exp.internship"
+                    >Stage</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.epfe.desc">
+                  Marketplace B2B multi-secteurs : collecte, enrichissement,
+                  scoring ML et agents IA conversationnels. Système full-stack
+                  combinant ingénierie des données, pipelines ML et application
+                  mobile.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.epfe.b1">
+                    Pipeline de scraping multi-sources (Selenium,
+                    BeautifulSoup), enrichissement data.gouv.fr (SIRENE, NAF,
+                    géocodage) et analyse de sentiment via LLM local (Ollama).
+                  </li>
+                  <li data-i18n="exp.epfe.b2">
+                    Modèle de scoring XGBoost v1→v4 (17 features, smoothing
+                    bayésien, contraintes monotones, versionnage).
+                  </li>
+                  <li data-i18n="exp.epfe.b3">
+                    Moteur de recommandations ML (SGDClassifier, online
+                    learning, distance Haversine pour la proximité géo).
+                  </li>
+                  <li data-i18n="exp.epfe.b4">
+                    Intégration OpenAI GPT-4o pour génération d'emails, OCR et
+                    agents métier ; Stripe pour les paiements.
+                  </li>
+                  <li data-i18n="exp.epfe.b5">
+                    Application mobile Flutter multi-rôles (Admin, Acheteur,
+                    Fournisseur, Agent) avec Redis et PostgreSQL.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">Python</span><span class="tag">FastAPI</span
+                  ><span class="tag">XGBoost</span
+                  ><span class="tag">Scikit-learn</span
+                  ><span class="tag">OpenAI GPT-4o</span
+                  ><span class="tag">Flutter/Dart</span
+                  ><span class="tag">PostgreSQL</span
+                  ><span class="tag">Redis</span
+                  ><span class="tag">Selenium</span>
+                </div>
+              </div>
+
+              <!-- StartNow Summer 2025 -->
+              <div class="exp-card" data-category="internship">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e1.title">
+                      StartNow — Module de gestion des familles
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e1.meta">
+                      Stage d'été · 2025 · 1 mois · Tunis
+                    </p>
+                  </div>
+                  <span class="exp-badge b-int" data-i18n="exp.internship"
+                    >Stage</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e1.desc">
+                  Application web permettant aux écoles de gérer les dossiers
+                  familiaux, planifier des réunions et déterminer
+                  automatiquement l'éligibilité aux réductions de scolarité.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e1.b1">
+                    Conception du schéma relationnel MySQL pour profils
+                    familiaux, réunions, enfants et scores.
+                  </li>
+                  <li data-i18n="exp.e1.b2">
+                    API REST Spring Boot avec logique métier pour calcul
+                    automatique des scores et seuils de réduction.
+                  </li>
+                  <li data-i18n="exp.e1.b3">
+                    Frontend React.js avec grilles de présence, calendrier de
+                    réunions et rapports exportables.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">Spring Boot</span
+                  ><span class="tag">React.js</span
+                  ><span class="tag">MySQL</span
+                  ><span class="tag">JavaScript</span>
+                </div>
+              </div>
+
+              <!-- CompassIT 2025 -->
+              <div class="exp-card" data-category="internship">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e2.title">
+                      CompassIT — Gestion de colis multi-entreprises
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e2.meta">
+                      Stage d'été · 2025 · Hammam Sousse
+                    </p>
+                  </div>
+                  <span class="exp-badge b-int" data-i18n="exp.internship"
+                    >Stage</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e2.desc">
+                  Plateforme SaaS de gestion de colis multi-tenant avec
+                  isolation des données par entreprise, quotas de licences et
+                  rôles (Admin, Livreur, Client).
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e2.b1">
+                    Architecture multi-tenant Node.js/Express avec isolation des
+                    données par entreprise et feature gating par licence.
+                  </li>
+                  <li data-i18n="exp.e2.b2">
+                    Génération de QR codes par colis, scan à la livraison pour
+                    mise à jour du statut en temps réel.
+                  </li>
+                  <li data-i18n="exp.e2.b3">
+                    Vue de suivi GPS temps réel intégrée au dashboard React pour
+                    les dispatchers.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">Node.js</span
+                  ><span class="tag">React.js</span
+                  ><span class="tag">MySQL</span
+                  ><span class="tag">TypeScript</span>
+                </div>
+              </div>
+
+              <!-- Sign Language -->
+              <div class="exp-card" data-category="academic">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e3.title">
+                      Système de reconnaissance de la langue des signes
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e3.meta">
+                      Projet académique · Fév 2024 – Avr 2024
+                    </p>
+                  </div>
+                  <span class="exp-badge b-aca" data-i18n="exp.academic"
+                    >Académique</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e3.desc">
+                  Système trois couches de reconnaissance de la langue des
+                  signes en temps réel, traduisant les gestes en texte et en
+                  synthèse vocale.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e3.b1">
+                    Couche IoT : Raspberry Pi + caméra pour la capture des
+                    gestes en temps réel.
+                  </li>
+                  <li data-i18n="exp.e3.b2">
+                    Couche IA : modèle CNN TensorFlow/Keras entraîné sur un
+                    dataset de gestes labellisés.
+                  </li>
+                  <li data-i18n="exp.e3.b3">
+                    Couche Web : API Flask affichant les prédictions avec
+                    synthèse vocale pour l'accessibilité.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">Python</span
+                  ><span class="tag">TensorFlow</span
+                  ><span class="tag">Flask</span
+                  ><span class="tag">Raspberry Pi</span>
+                </div>
+              </div>
+
+              <!-- Hangman -->
+              <div class="exp-card" data-category="academic">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e4.title">
+                      Pendu multijoueur avec arbre binaire de recherche
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e4.meta">
+                      Projet académique · Jan 2024 – Fév 2024
+                    </p>
+                  </div>
+                  <span class="exp-badge b-aca" data-i18n="exp.academic"
+                    >Académique</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e4.desc">
+                  Jeu du Pendu multijoueur en C avec structures de données
+                  avancées, réseau et interface web.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e4.b1">
+                    Stockage des mots dans un ABR en C, trois niveaux de
+                    difficulté par profondeur/fréquence des nœuds.
+                  </li>
+                  <li data-i18n="exp.e4.b2">
+                    Serveur TCP multithreadé (POSIX threads) pour sessions
+                    simultanées, scores en SQLite.
+                  </li>
+                  <li data-i18n="exp.e4.b3">
+                    Interface web Python/Flask comme alternative graphique au
+                    client console, sous Linux/VMware.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">C</span><span class="tag">Python</span
+                  ><span class="tag">Flask</span><span class="tag">SQLite</span
+                  ><span class="tag">Linux</span>
+                </div>
+              </div>
+
+              <!-- Olive Oil -->
+              <div class="exp-card" data-category="internship">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e5.title">
+                      CompassIT — Application de classification d'huile d'olive
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e5.meta">
+                      Stage PFE · 2023 · Hammam Sousse
+                    </p>
+                  </div>
+                  <span class="exp-badge b-int" data-i18n="exp.internship"
+                    >Stage</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e5.desc">
+                  Plateforme web + mobile pour la certification qualité de
+                  l'huile d'olive : tests, classification, QR code traceable et
+                  stockage pour audit.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e5.b1">
+                    Backend FastAPI avec logique de classification des grades
+                    selon les normes internationales.
+                  </li>
+                  <li data-i18n="exp.e5.b2">
+                    App Angular pour les opérateurs de laboratoire et
+                    Flutter/Dart pour les agents terrain.
+                  </li>
+                  <li data-i18n="exp.e5.b3">
+                    QR codes uniques par résultat en MySQL, liés à une page
+                    publique pour traçabilité.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">FastAPI</span
+                  ><span class="tag">Angular</span
+                  ><span class="tag">Flutter</span><span class="tag">MySQL</span
+                  ><span class="tag">Dart</span>
+                </div>
+              </div>
+
+              <!-- COVID -->
+              <div class="exp-card" data-category="internship">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e6.title">
+                      ItGateTraining — Classificateur COVID-19 par radiographie
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e6.meta">
+                      Stage d'été · 2022 · Hammam Sousse
+                    </p>
+                  </div>
+                  <span class="exp-badge b-int" data-i18n="exp.internship"
+                    >Stage</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e6.desc">
+                  Système IA médical de détection automatique du COVID-19 sur
+                  des radiographies thoraciques, entraîné sur des données
+                  radiologiques et déployé via une interface web.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e6.b1">
+                    Ingestion et prétraitement du dataset : redimensionnement,
+                    normalisation, augmentation pour améliorer la
+                    généralisation.
+                  </li>
+                  <li data-i18n="exp.e6.b2">
+                    Fine-tuning d'un CNN VGG en TensorFlow/Keras pour
+                    classification binaire, résultats en SQLite.
+                  </li>
+                  <li data-i18n="exp.e6.b3">
+                    Interface Flask pour upload d'images, inférence et affichage
+                    des résultats avec cartes d'activation.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">Python</span><span class="tag">Flask</span
+                  ><span class="tag">TensorFlow</span
+                  ><span class="tag">SQLite</span>
+                </div>
+              </div>
+
+              <!-- Finance Tracker -->
+              <div class="exp-card" data-category="personal">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e7.title">
+                      Suivi des finances personnelles
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e7.meta">
+                      Projet personnel · Mar 2022 – Jun 2022
+                    </p>
+                  </div>
+                  <span class="exp-badge b-per" data-i18n="exp.personal"
+                    >Personnel</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e7.desc">
+                  Application web full-stack de gestion financière personnelle
+                  avec analytics prédictifs.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e7.b1">
+                    Génération de datasets synthétiques en Python, ingestion et
+                    transformation dans un schéma SQL normalisé.
+                  </li>
+                  <li data-i18n="exp.e7.b2">
+                    Frontend Angular avec graphiques interactifs et backend
+                    Django REST pour la logique métier et les alertes.
+                  </li>
+                  <li data-i18n="exp.e7.b3">
+                    Algorithmes de prédiction pour les dépenses retail et
+                    alertes budgétaires configurables.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">Angular</span><span class="tag">Django</span
+                  ><span class="tag">Python</span><span class="tag">SQL</span>
+                </div>
+              </div>
+
+              <!-- Restaurant -->
+              <div class="exp-card" data-category="personal">
+                <div class="exp-top">
+                  <div>
+                    <p class="exp-h" data-i18n="exp.e8.title">
+                      Application mobile de gestion de restaurant
+                    </p>
+                    <p class="exp-meta" data-i18n="exp.e8.meta">
+                      Projet personnel · Avr – Mai 2022
+                    </p>
+                  </div>
+                  <span class="exp-badge b-per" data-i18n="exp.personal"
+                    >Personnel</span
+                  >
+                </div>
+                <p class="exp-desc" data-i18n="exp.e8.desc">
+                  Application mobile multiplateforme pour la gestion des
+                  réservations, commandes, paiements et livraisons.
+                </p>
+                <ul class="exp-bullets">
+                  <li data-i18n="exp.e8.b1">
+                    Flutter/Dart pour iOS et Android depuis une base de code
+                    unique, architecture provider.
+                  </li>
+                  <li data-i18n="exp.e8.b2">
+                    API Flask pour CRUD réservations, cycle de vie des commandes
+                    et suivi des livraisons.
+                  </li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="tag">Flutter</span><span class="tag">Dart</span
+                  ><span class="tag">Flask</span><span class="tag">Python</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- DEMO -->
+        <article class="page" id="page-demo">
+          <div class="page-head">
+            <div class="ph-inner">
+              <h2 class="ph-title" data-i18n-html="demo.title">
+                Démos <em>Projets</em>
+              </h2>
+            </div>
+          </div>
+          <div class="content">
+            <div class="demo-grid">
+              <div class="demo-card">
+                <div class="video-box">
+                  <video controls preload="none">
+                    <source
+                      src="./assets/video/DemoMobile.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <div class="demo-body">
+                  <p class="demo-cat" data-i18n="demo.d1.cat">
+                    Académique · 2022
+                  </p>
+                  <p class="demo-h">AIScanCOVID</p>
+                  <p class="demo-p" data-i18n="demo.d1.desc">
+                    Modèle CNN (VGG) pour la détection automatique du COVID-19
+                    sur des radiographies thoraciques.
+                  </p>
+                </div>
+              </div>
+              <div class="demo-card">
+                <div class="video-box">
+                  <video controls preload="none">
+                    <source
+                      src="./assets/video/startNow.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <div class="demo-body">
+                  <p class="demo-cat" data-i18n="demo.d2.cat">
+                    Stage d'été · 2025
+                  </p>
+                  <p class="demo-h">
+                    StartNow — Module de gestion des familles
+                  </p>
+                  <p class="demo-p" data-i18n="demo.d2.desc">
+                    Application web pour gérer les familles scolaires, organiser
+                    des réunions et suivre la présence.
+                  </p>
+                </div>
+              </div>
+              <div class="demo-card">
+                <div class="video-box">
+                  <video controls preload="none">
+                    <source
+                      src="./assets/video/pfeoilab.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <div class="demo-body">
+                  <p class="demo-cat" data-i18n="demo.d3.cat">
+                    Projet de fin d'études · 2025
+                  </p>
+                  <p class="demo-h">OILab — Collaboration & Automatisation</p>
+                  <p class="demo-p" data-i18n="demo.d3.desc">
+                    Plateforme complète de gestion des tâches, automatisation IA
+                    des flux, organisation des réunions chez OILab.
+                  </p>
+                </div>
+              </div>
+              <!-- DEMO 4 — BMS (FIXED) -->
+              <div class="demo-card">
+                <div class="video-box">
+                  <video controls preload="none">
+                    <source src="./assets/video/demo4.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="demo-body">
+                  <p class="demo-cat" data-i18n="demo.d4.cat">
+                    Développeuse Full-Stack · 2026
+                  </p>
+                  <p class="demo-h">
+                    Plateforme Web &amp; Mobile de gestion immobilière (BMS)
+                  </p>
+                  <p class="demo-p" data-i18n="demo.d4.desc">
+                    Développement d'un Building Management System complet
+                    multi-rôles (Super Admin, Admin, Propriétaire, Locataire,
+                    Employé).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CONTACT -->
+        <article class="page" id="page-contact">
+          <div class="page-head">
+            <div class="ph-inner">
+              <h2 class="ph-title" data-i18n-html="contact.title">
+                Contactez-<em>moi</em>
+              </h2>
+            </div>
+          </div>
+          <div class="content">
+            <div class="contact-wrap">
+              <div>
+                <p class="contact-lead" data-i18n="contact.lead">
+                  Ingénieure logicielle activement à la recherche de nouvelles
+                  opportunités. Si vous avez un projet ou un poste correspondant
+                  à mes compétences en IA, développement full-stack ou
+                  infrastructure cloud, je serais ravie d'échanger.
+                </p>
+                <div class="clink-list">
+                  <a href="mailto:chihaoui.fatma7@gmail.com" class="clink">
+                    <div class="clink-icon">✉</div>
+                    <div>
+                      <p class="clink-lbl" data-i18n="sidebar.email">E-mail</p>
+                      <p class="clink-val">chihaoui.fatma7@gmail.com</p>
+                    </div>
+                  </a>
+                  <a href="tel:+21651108793" class="clink">
+                    <div class="clink-icon">📞</div>
+                    <div>
+                      <p class="clink-lbl" data-i18n="sidebar.phone">
+                        Téléphone
+                      </p>
+                      <p class="clink-val">+216 51 108 793</p>
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/chihaoui-fatma-b42606250"
+                    target="_blank"
+                    class="clink"
+                  >
+                    <div class="clink-icon">in</div>
+                    <div>
+                      <p class="clink-lbl">LinkedIn</p>
+                      <p class="clink-val">chihaoui-fatma-b42606250</p>
+                    </div>
+                  </a>
+                  <a
+                    href="https://github.com/chfatma"
+                    target="_blank"
+                    class="clink"
+                  >
+                    <div class="clink-icon">⌥</div>
+                    <div>
+                      <p class="clink-lbl">GitHub</p>
+                      <p class="clink-val">github.com/chfatma</p>
+                    </div>
+                  </a>
+                  <a
+                    href="https://chfatma.github.io/portfolio"
+                    target="_blank"
+                    class="clink"
+                  >
+                    <div class="clink-icon">🌐</div>
+                    <div>
+                      <p class="clink-lbl">Portfolio</p>
+                      <p class="clink-val">chfatma.github.io/portfolio</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="map-box">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2494.409949717918!2d10.073131026730923!3d35.678717642063695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sfr!2stn!4v1701545730936!5m2!1sfr!2stn"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+              <div>
+                <form id="cf">
+                  <div class="f-row">
+                    <div class="form-g">
+                      <label
+                        class="f-lbl"
+                        for="fn"
+                        data-i18n="contact.form.name"
+                        >Nom complet</label
+                      >
+                      <input
+                        class="f-in"
+                        type="text"
+                        id="fn"
+                        placeholder="Votre nom"
+                        required
+                      />
+                    </div>
+                    <div class="form-g">
+                      <label
+                        class="f-lbl"
+                        for="fe"
+                        data-i18n="contact.form.email"
+                        >E-mail</label
+                      >
+                      <input
+                        class="f-in"
+                        type="email"
+                        id="fe"
+                        placeholder="votre@email.com"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="form-g">
+                    <label
+                      class="f-lbl"
+                      for="fs"
+                      data-i18n="contact.form.subject"
+                      >Sujet</label
+                    >
+                    <input
+                      class="f-in"
+                      type="text"
+                      id="fs"
+                      placeholder="Opportunité · Collaboration"
+                    />
+                  </div>
+                  <div class="form-g">
+                    <label
+                      class="f-lbl"
+                      for="fm"
+                      data-i18n="contact.form.message"
+                      >Message</label
+                    >
+                    <textarea
+                      class="f-ta"
+                      id="fm"
+                      placeholder="Décrivez votre projet ou opportunité…"
+                      required
+                    ></textarea>
+                  </div>
+                  <button class="send-btn" type="submit">
+                    ✈
+                    <span data-i18n="contact.form.send"
+                      >Envoyer le message</span
+                    >
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <nav class="mobile-nav">
+      <button class="mnav-btn active" data-nav="about">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+        </svg>
+        <span data-i18n="nav.about">À propos</span>
+      </button>
+      <button class="mnav-btn" data-nav="education">
+        <svg viewBox="0 0 24 24">
+          <path d="M2 10l10-6 10 6-10 6-10-6z" />
+          <path d="M6 12v5c2 2 8 2 12 0v-5" />
+        </svg>
+        <span data-i18n="nav.education">Formation</span>
+      </button>
+      <button class="mnav-btn" data-nav="experience">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="7" width="20" height="14" rx="2" />
+          <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+        </svg>
+        <span data-i18n="nav.experience">Exp.</span>
+      </button>
+      <button class="mnav-btn" data-nav="demo">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+        <span data-i18n="nav.demo">Démos</span>
+      </button>
+      <button class="mnav-btn" data-nav="contact">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.63 3.41 2 2 0 013.6 1.23h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.91a16 16 0 006.29 6.29l.95-.95a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+          />
+        </svg>
+        <span data-i18n="nav.contact">Contact</span>
+      </button>
+    </nav>
+
+    <script>
+      const i18n = {
+        en: {
+          "nav.about": "About",
+          "nav.education": "Education",
+          "nav.experience": "Experience",
+          "nav.demo": "Project Demo",
+          "nav.contact": "Contact",
+          "sidebar.avail": "Open to opportunities",
+          "sidebar.role": "Full-Stack & AI Engineer",
+          "sidebar.email": "Email",
+          "sidebar.phone": "Phone",
+          "sidebar.location": "Location",
+          "sidebar.cv": "Download CV",
+          "hero.subtitle":
+            "Software Engineer · Data Science · AI · Web & Mobile · ISI Tunis – El Manar",
+          "about.profileLabel": "Profile",
+          "about.bio1": `I am a <strong>computer engineering graduate</strong> specializing in Data Science, AI, and web/mobile development, holder of an engineering degree from <strong>ISI Tunis – El Manar</strong>. Ranked <strong>first in my class</strong> during my bachelor's degree, I have built strong technical depth through projects in AI (CNN, XGBoost, LLMs), full-stack development (Spring Boot, React.js, Angular, FastAPI), and mobile (Flutter). Currently employed as a Full-Stack Developer at StartNow, I am actively seeking new engineering opportunities.`,
+          "about.skillsLabel": "Technical Skills",
+          "about.langsLabel": "Languages",
+          "skills.frameworks": "Frameworks",
+          "skills.languages": "Languages",
+          "skills.ai": "AI & Data",
+          "skills.databases": "Databases",
+          "skills.devops": "DevOps & Tools",
+          "lang.arabic": "Arabic",
+          "lang.arabicLevel": "Native language",
+          "lang.french": "French",
+          "lang.frenchLevel": "Full professional proficiency",
+          "lang.english": "English",
+          "lang.englishLevel": "Full professional proficiency",
+          "edu.title": "Education & <em>Certifications</em>",
+          "edu.eduLabel": "Education",
+          "edu.certsLabel": "Certifications",
+          "edu.isi.title": "Engineering Cycle — IDISC",
+          "edu.isi.org":
+            "Institut Supérieur d'Informatique, Tunis – El Manar (ISI)",
+          "edu.isi.desc":
+            "Infrastructure & Communication Services Development. Final engineering year — currently employed as Full-Stack Developer at StartNow.",
+          "edu.bachelor.title": "Bachelor in Computer Systems Engineering",
+          "edu.bachelor.org":
+            "ISMAI – Higher Institute of Applied Mathematics and Computer Science, Kairouan",
+          "edu.bachelor.desc":
+            "Software engineering, algorithms, systems architecture, and applied mathematics.",
+          "edu.bachelor.badge": "🏆 Ranked 1st in class — Major",
+          "exp.title": "<em>Experience</em>",
+          "exp.filterAll": "All",
+          "exp.filterCurrent": "Current",
+          "exp.filterInternship": "Internships",
+          "exp.filterAcademic": "Academic",
+          "exp.filterPersonal": "Personal",
+          "exp.current": "Current",
+          "exp.internship": "Internship",
+          "exp.academic": "Academic",
+          "exp.personal": "Personal",
+          "exp.e0.title": "StartNow — Building Management System (BMS)",
+          "exp.e0.meta": "Full-Stack Developer · Apr 2026 – Present · Tunis",
+          "exp.e0.desc":
+            "Multi-role web & mobile platform for real estate management, covering buildings, floors, units, contracts, rents, invoices, complaints, maintenance, and HR.",
+          "exp.e0.b1":
+            "Architected multi-module React.js frontend with Redux Toolkit, React Query, AG Grid, and Formik for complex form handling and data tables.",
+          "exp.e0.b2":
+            "Implemented JWT authentication (access token in memory, refresh token in HttpOnly cookie) with RBAC menus dynamically driven by the API, and Axios interceptors for silent token refresh.",
+          "exp.e0.b3":
+            "Built real-time inter-user chat module via WebSocket (Socket.io) with push notifications.",
+          "exp.e0.b4":
+            "Developed an AI conversational chatbot integrated directly into the platform, plus Excel/CSV import module, OCR for visitor management, and PDF generation.",
+          "exp.e0.b5":
+            "Added full internationalization in 6 languages (EN, FR, AR, DE, PT, ES) with RTL support, Stripe/PayPal payment integration, and cross-platform Flutter mobile app with real-time sync.",
+          "exp.epfe.title": "PFE — B2B Lead Marketplace (AI & ML Platform)",
+          "exp.epfe.meta": "End-of-Studies Internship · 2026 · 4 months",
+          "exp.epfe.desc":
+            "Multi-sector B2B marketplace for lead collection, enrichment, ML scoring, and conversational AI agents.",
+          "exp.epfe.b1":
+            "Built multi-source scraping pipeline with Selenium and BeautifulSoup, enriched with French government data and local LLM sentiment analysis via Ollama.",
+          "exp.epfe.b2":
+            "Designed and iterated XGBoost scoring model v1→v4 (17 features, Bayesian smoothing, monotone constraints, versioning).",
+          "exp.epfe.b3":
+            "Built ML recommendation engine using SGDClassifier (online learning) with Haversine distance for geo-proximity scoring.",
+          "exp.epfe.b4":
+            "Integrated OpenAI GPT-4o for automated email generation, OCR document processing, and business AI agents; Stripe for payment processing.",
+          "exp.epfe.b5":
+            "Developed multi-role Flutter mobile app (Admin, Buyer, Supplier, Agent) with Redis caching and PostgreSQL.",
+          "exp.e1.title": "StartNow — Family Management Module",
+          "exp.e1.meta": "Summer Internship · 2025 · 1 month · Tunis",
+          "exp.e1.desc":
+            "Web application enabling schools to manage family records, schedule parent-teacher meetings, and automatically determine tuition reduction eligibility.",
+          "exp.e1.b1":
+            "Designed a relational schema in MySQL to store family profiles, children, meeting history, and score records.",
+          "exp.e1.b2":
+            "Built a Spring Boot REST API with service-layer business logic for automatic score computation.",
+          "exp.e1.b3":
+            "Developed a React.js frontend with attendance tracking grids, meeting calendar view, and exportable eligibility reports.",
+          "exp.e2.title": "CompassIT — Multi-Company Parcel Management",
+          "exp.e2.meta": "Summer Internship · 2025 · Hammam Sousse",
+          "exp.e2.desc":
+            "SaaS-style parcel management platform serving multiple independent companies with multi-tenant architecture.",
+          "exp.e2.b1":
+            "Implemented multi-tenant architecture in Node.js/Express with per-company data isolation and license-based feature gating.",
+          "exp.e2.b2":
+            "Built QR code generation for each parcel, scanned on delivery to update status and location in real time.",
+          "exp.e2.b3":
+            "Developed real-time GPS tracking view integrated into the React dashboard.",
+          "exp.e3.title": "Sign Language Recognition System",
+          "exp.e3.meta": "Academic Project · Feb 2024 – Apr 2024",
+          "exp.e3.desc":
+            "End-to-end three-layer system for real-time sign language recognition, translating hand gestures into text and synthesized speech.",
+          "exp.e3.b1":
+            "IoT layer: Raspberry Pi + camera module captures live hand gesture frames.",
+          "exp.e3.b2":
+            "AI layer: TensorFlow/Keras CNN model trained on a labeled gesture dataset.",
+          "exp.e3.b3":
+            "Web layer: Flask API receives predictions and displays results with voice synthesis output.",
+          "exp.e4.title": "Multiplayer Hangman with Binary Search Tree",
+          "exp.e4.meta": "Academic Project · Jan 2024 – Feb 2024",
+          "exp.e4.desc":
+            "Multiplayer Hangman game built in C with advanced data structures, networking, and a web interface.",
+          "exp.e4.b1":
+            "Implemented word storage using a Binary Search Tree in C, with three difficulty levels.",
+          "exp.e4.b2":
+            "Built a multithreaded TCP server (POSIX threads) with per-client state and score tracking in SQLite.",
+          "exp.e4.b3":
+            "Added a Python/Flask web interface deployed in a Linux/VMware environment.",
+          "exp.e5.title": "CompassIT — Olive Oil Classification App",
+          "exp.e5.meta": "End-of-Studies Internship · 2023 · Hammam Sousse",
+          "exp.e5.desc":
+            "Full web + mobile platform for olive oil quality certification with QR traceability.",
+          "exp.e5.b1":
+            "Developed FastAPI backend with classification logic per international standards.",
+          "exp.e5.b2":
+            "Built Angular web app for lab operators and a Flutter/Dart mobile app for field agents.",
+          "exp.e5.b3":
+            "Generated unique QR codes per result stored in MySQL for traceability.",
+          "exp.e6.title": "ItGateTraining — COVID-19 X-Ray Classifier",
+          "exp.e6.meta": "Summer Internship · 2022 · Hammam Sousse",
+          "exp.e6.desc":
+            "Medical AI system for automatic COVID-19 detection from chest X-rays.",
+          "exp.e6.b1":
+            "Ingested and preprocessed a radiological image dataset with augmentation techniques.",
+          "exp.e6.b2":
+            "Fine-tuned a VGG-based CNN in TensorFlow/Keras for binary classification, results in SQLite.",
+          "exp.e6.b3":
+            "Built a Flask web interface with class activation maps to highlight suspicious regions.",
+          "exp.e7.title": "Personal Finance Tracker",
+          "exp.e7.meta": "Personal Project · Mar 2022 – Jun 2022",
+          "exp.e7.desc":
+            "Full-stack web application for personal finance management with predictive analytics.",
+          "exp.e7.b1":
+            "Generated synthetic transaction datasets in Python and ingested into a normalized SQL schema.",
+          "exp.e7.b2":
+            "Implemented Angular frontend with interactive charts and a Django REST backend.",
+          "exp.e7.b3":
+            "Built prediction algorithms to forecast spending patterns and trigger budget alerts.",
+          "exp.e8.title": "Mobile Restaurant Management App",
+          "exp.e8.meta": "Personal Project · Apr – May 2022",
+          "exp.e8.desc":
+            "Cross-platform mobile application for restaurant operations.",
+          "exp.e8.b1":
+            "Built with Flutter/Dart for iOS and Android from a single codebase.",
+          "exp.e8.b2":
+            "Developed Flask REST API for reservation CRUD and delivery tracking.",
+          "demo.title": "Project <em>Demo</em>",
+          "demo.d1.cat": "Academic · 2022",
+          "demo.d1.desc":
+            "CNN model (VGG) for automatic COVID-19 detection from chest X-ray images.",
+          "demo.d2.cat": "Summer Internship · 2025",
+          "demo.d2.desc":
+            "Web application for managing school families, organizing meetings, and tracking attendance.",
+          "demo.d3.cat": "Final Year Project · 2025",
+          "demo.d3.desc":
+            "Complete platform for task management, AI-assisted workflow automation, and internal collaboration at OILab.",
+          "demo.d4.cat": "Full-Stack Developer · 2026",
+          "demo.d4.desc":
+            "Full multi-role Building Management System (Super Admin, Admin, Owner, Tenant, Employee) — web & mobile.",
+          "contact.title": "Contact <em>me</em>",
+          "contact.lead":
+            "I am a software engineer actively seeking new opportunities. If you have a project or role aligned with my skills in AI, full-stack development, or cloud infrastructure, I would be glad to connect.",
+          "contact.form.name": "Full name",
+          "contact.form.email": "Email",
+          "contact.form.subject": "Subject",
+          "contact.form.message": "Message",
+          "contact.form.send": "Send message",
+        },
+        fr: {
+          "nav.about": "À propos",
+          "nav.education": "Formation",
+          "nav.experience": "Expérience",
+          "nav.demo": "Démos",
+          "nav.contact": "Contact",
+          "sidebar.avail": "Ouverte aux opportunités",
+          "sidebar.role": "Ingénieure Full-Stack & IA",
+          "sidebar.email": "E-mail",
+          "sidebar.phone": "Téléphone",
+          "sidebar.location": "Localisation",
+          "sidebar.cv": "Télécharger CV",
+          "hero.subtitle":
+            "Ingénieure · Data Science · IA · Web & Mobile · ISI Tunis – El Manar",
+          "about.profileLabel": "Profil",
+          "about.bio1": `Je suis <strong>ingénieure en informatique diplômée</strong>, spécialisée en Data Science, IA et développement web/mobile, diplômée de <strong>ISI Tunis – El Manar</strong>. Classée <strong>première de ma promotion</strong> en licence, j'ai acquis de solides compétences à travers des projets en IA (CNN, XGBoost, LLMs), développement full-stack (Spring Boot, React.js, Angular, FastAPI) et mobile (Flutter). Actuellement développeuse Full-Stack chez StartNow, je suis activement à la recherche de nouvelles opportunités.`,
+          "about.skillsLabel": "Compétences techniques",
+          "about.langsLabel": "Langues",
+          "skills.frameworks": "Frameworks",
+          "skills.languages": "Langages",
+          "skills.ai": "IA & Données",
+          "skills.databases": "Bases de données",
+          "skills.devops": "DevOps & Outils",
+          "lang.arabic": "Arabe",
+          "lang.arabicLevel": "Langue maternelle",
+          "lang.french": "Français",
+          "lang.frenchLevel": "Maîtrise professionnelle complète",
+          "lang.english": "Anglais",
+          "lang.englishLevel": "Maîtrise professionnelle complète",
+          "edu.title": "Formation & <em>Certifications</em>",
+          "edu.eduLabel": "Formation",
+          "edu.certsLabel": "Certifications",
+          "edu.isi.title": "Cycle Ingénieur — IDISC",
+          "edu.isi.org":
+            "Institut Supérieur d'Informatique, Tunis – El Manar (ISI)",
+          "edu.isi.desc":
+            "Développement d'infrastructures et services de communication. Dernière année — actuellement développeuse Full-Stack chez StartNow.",
+          "edu.bachelor.title": "Licence en génie des systèmes informatiques",
+          "edu.bachelor.org":
+            "ISMAI – Institut Supérieur de Mathématiques Appliquées et d'Informatique, Kairouan",
+          "edu.bachelor.desc":
+            "Génie logiciel, algorithmes, architecture des systèmes et mathématiques appliquées.",
+          "edu.bachelor.badge": "🏆 Major de promotion — Licence",
+          "exp.title": "<em>Expérience</em>",
+          "exp.filterAll": "Tout",
+          "exp.filterCurrent": "En cours",
+          "exp.filterInternship": "Stages",
+          "exp.filterAcademic": "Académique",
+          "exp.filterPersonal": "Personnel",
+          "exp.current": "En cours",
+          "exp.internship": "Stage",
+          "exp.academic": "Académique",
+          "exp.personal": "Personnel",
+          "exp.e0.title": "StartNow — Building Management System (BMS)",
+          "exp.e0.meta": "Développeuse Full-Stack · Avr 2026 – Présent · Tunis",
+          "exp.e0.desc":
+            "Plateforme web & mobile multi-rôles pour la gestion immobilière : bâtiments, étages, unités, contrats, loyers, factures, plaintes, maintenance et RH.",
+          "exp.e0.b1":
+            "Architecture du frontend React.js multi-modules avec Redux Toolkit, React Query, AG Grid et Formik.",
+          "exp.e0.b2":
+            "Authentification JWT avec RBAC dynamique piloté par menus API et interceptors Axios pour auto-refresh.",
+          "exp.e0.b3":
+            "Module de messagerie temps réel via WebSocket (Socket.io) avec notifications push.",
+          "exp.e0.b4":
+            "Chatbot IA conversationnel intégré, module d'import Excel/CSV, OCR visiteurs et génération PDF.",
+          "exp.e0.b5":
+            "Internationalisation 6 langues avec support RTL, paiements Stripe/PayPal et application mobile Flutter.",
+          "exp.epfe.title":
+            "PFE — Marketplace B2B de leads (Plateforme IA & ML)",
+          "exp.epfe.meta": "Stage de fin d'études · 2026 · 4 mois",
+          "exp.epfe.desc":
+            "Marketplace B2B multi-secteurs : collecte, enrichissement, scoring ML et agents IA conversationnels.",
+          "exp.epfe.b1":
+            "Pipeline de scraping multi-sources, enrichissement data.gouv.fr et analyse de sentiment LLM local (Ollama).",
+          "exp.epfe.b2":
+            "Modèle de scoring XGBoost v1→v4 (17 features, smoothing bayésien, contraintes monotones, versionnage).",
+          "exp.epfe.b3":
+            "Moteur de recommandations ML (SGDClassifier, distance Haversine pour la proximité géo).",
+          "exp.epfe.b4":
+            "Intégration OpenAI GPT-4o pour génération d'emails, OCR et agents métier ; Stripe pour les paiements.",
+          "exp.epfe.b5":
+            "Application mobile Flutter multi-rôles avec Redis et PostgreSQL.",
+          "exp.e1.title": "StartNow — Module de gestion des familles",
+          "exp.e1.meta": "Stage d'été · 2025 · 1 mois · Tunis",
+          "exp.e1.desc":
+            "Application web permettant aux écoles de gérer les dossiers familiaux, planifier des réunions et déterminer automatiquement l'éligibilité aux réductions.",
+          "exp.e1.b1":
+            "Conception du schéma relationnel MySQL pour profils familiaux, réunions et scores.",
+          "exp.e1.b2":
+            "API REST Spring Boot avec calcul automatique des scores et seuils de réduction.",
+          "exp.e1.b3":
+            "Frontend React.js avec grilles de présence, calendrier et rapports exportables.",
+          "exp.e2.title": "CompassIT — Gestion de colis multi-entreprises",
+          "exp.e2.meta": "Stage d'été · 2025 · Hammam Sousse",
+          "exp.e2.desc":
+            "Plateforme SaaS de gestion de colis multi-tenant avec isolation des données et quotas de licences.",
+          "exp.e2.b1":
+            "Architecture multi-tenant Node.js/Express avec isolation des données et feature gating par licence.",
+          "exp.e2.b2":
+            "Génération de QR codes par colis, scan à la livraison pour mise à jour du statut en temps réel.",
+          "exp.e2.b3":
+            "Vue de suivi GPS temps réel intégrée au dashboard React pour les dispatchers.",
+          "exp.e3.title": "Système de reconnaissance de la langue des signes",
+          "exp.e3.meta": "Projet académique · Fév 2024 – Avr 2024",
+          "exp.e3.desc":
+            "Système trois couches de reconnaissance de la langue des signes en temps réel.",
+          "exp.e3.b1":
+            "Couche IoT : Raspberry Pi + caméra pour la capture des gestes en temps réel.",
+          "exp.e3.b2":
+            "Couche IA : modèle CNN TensorFlow/Keras entraîné sur un dataset de gestes labellisés.",
+          "exp.e3.b3":
+            "Couche Web : API Flask avec synthèse vocale pour l'accessibilité.",
+          "exp.e4.title": "Pendu multijoueur avec arbre binaire de recherche",
+          "exp.e4.meta": "Projet académique · Jan 2024 – Fév 2024",
+          "exp.e4.desc":
+            "Jeu du Pendu multijoueur en C avec ABR, réseau TCP et interface web Flask.",
+          "exp.e4.b1":
+            "Stockage des mots dans un ABR en C, trois niveaux de difficulté par profondeur.",
+          "exp.e4.b2":
+            "Serveur TCP multithreadé (POSIX threads) avec scores en SQLite.",
+          "exp.e4.b3": "Interface web Python/Flask sous Linux/VMware.",
+          "exp.e5.title":
+            "CompassIT — Application de classification d'huile d'olive",
+          "exp.e5.meta": "Stage PFE · 2023 · Hammam Sousse",
+          "exp.e5.desc":
+            "Plateforme web + mobile pour la certification qualité de l'huile d'olive avec QR code traçable.",
+          "exp.e5.b1":
+            "Backend FastAPI avec classification selon les normes internationales.",
+          "exp.e5.b2":
+            "App Angular pour les opérateurs et Flutter/Dart pour les agents terrain.",
+          "exp.e5.b3":
+            "QR codes uniques par résultat en MySQL pour traçabilité.",
+          "exp.e6.title":
+            "ItGateTraining — Classificateur COVID-19 par radiographie",
+          "exp.e6.meta": "Stage d'été · 2022 · Hammam Sousse",
+          "exp.e6.desc":
+            "Système IA de détection automatique du COVID-19 sur des radiographies thoraciques.",
+          "exp.e6.b1":
+            "Prétraitement du dataset : redimensionnement, normalisation, augmentation.",
+          "exp.e6.b2":
+            "Fine-tuning CNN VGG en TensorFlow/Keras, résultats en SQLite.",
+          "exp.e6.b3":
+            "Interface Flask avec upload d'images et cartes d'activation.",
+          "exp.e7.title": "Suivi des finances personnelles",
+          "exp.e7.meta": "Projet personnel · Mar 2022 – Jun 2022",
+          "exp.e7.desc":
+            "Application web full-stack de gestion financière avec analytics prédictifs.",
+          "exp.e7.b1":
+            "Génération de datasets synthétiques en Python, schéma SQL normalisé.",
+          "exp.e7.b2":
+            "Frontend Angular avec graphiques et backend Django REST.",
+          "exp.e7.b3":
+            "Algorithmes de prédiction des dépenses et alertes budgétaires.",
+          "exp.e8.title": "Application mobile de gestion de restaurant",
+          "exp.e8.meta": "Projet personnel · Avr – Mai 2022",
+          "exp.e8.desc":
+            "Application mobile multiplateforme pour réservations, commandes et livraisons.",
+          "exp.e8.b1": "Flutter/Dart iOS et Android, architecture provider.",
+          "exp.e8.b2":
+            "API Flask pour CRUD réservations et suivi des livraisons.",
+          "demo.title": "Démos <em>Projets</em>",
+          "demo.d1.cat": "Académique · 2022",
+          "demo.d1.desc":
+            "Modèle CNN (VGG) pour la détection automatique du COVID-19 sur radiographies.",
+          "demo.d2.cat": "Stage d'été · 2025",
+          "demo.d2.desc":
+            "Application web pour gérer les familles scolaires et organiser les réunions.",
+          "demo.d3.cat": "Projet de fin d'études · 2025",
+          "demo.d3.desc":
+            "Plateforme de gestion des tâches, automatisation IA et collaboration interne chez OILab.",
+          "demo.d4.cat": "Développeuse Full-Stack · 2026",
+          "demo.d4.desc":
+            "Développement d'un Building Management System complet multi-rôles (Super Admin, Admin, Propriétaire, Locataire, Employé).",
+          "contact.title": "Contactez-<em>moi</em>",
+          "contact.lead":
+            "Ingénieure logicielle activement à la recherche de nouvelles opportunités. Si vous avez un projet ou un poste correspondant à mes compétences en IA, développement full-stack ou infrastructure cloud, je serais ravie d'échanger.",
+          "contact.form.name": "Nom complet",
+          "contact.form.email": "E-mail",
+          "contact.form.subject": "Sujet",
+          "contact.form.message": "Message",
+          "contact.form.send": "Envoyer le message",
+        },
+        de: {
+          "nav.about": "Über mich",
+          "nav.education": "Bildung",
+          "nav.experience": "Erfahrung",
+          "nav.demo": "Projektdemos",
+          "nav.contact": "Kontakt",
+          "sidebar.avail": "Offen für Möglichkeiten",
+          "sidebar.role": "Full-Stack & KI-Ingenieurin",
+          "sidebar.email": "E-Mail",
+          "sidebar.phone": "Telefon",
+          "sidebar.location": "Standort",
+          "sidebar.cv": "Lebenslauf laden",
+          "hero.subtitle":
+            "Software-Ingenieurin · Data Science · KI · Web & Mobile · ISI Tunis – El Manar",
+          "about.profileLabel": "Profil",
+          "about.bio1": `Ich bin <strong>Informatik-Ingenieurin</strong> mit Schwerpunkt Data Science, KI und Web-/Mobile-Entwicklung, Absolventin der <strong>ISI Tunis – El Manar</strong>. Als <strong>Jahrgangsbeste</strong> im Bachelor habe ich fundierte Kenntnisse in KI (CNN, XGBoost, LLMs), Full-Stack (Spring Boot, React.js, Angular, FastAPI) und Mobile (Flutter) aufgebaut. Aktuell als Full-Stack-Entwicklerin bei StartNow tätig.`,
+          "about.skillsLabel": "Technische Fähigkeiten",
+          "about.langsLabel": "Sprachen",
+          "skills.frameworks": "Frameworks",
+          "skills.languages": "Programmiersprachen",
+          "skills.ai": "KI & Daten",
+          "skills.databases": "Datenbanken",
+          "skills.devops": "DevOps & Tools",
+          "lang.arabic": "Arabisch",
+          "lang.arabicLevel": "Muttersprache",
+          "lang.french": "Französisch",
+          "lang.frenchLevel": "Vollständige Berufskompetenz",
+          "lang.english": "Englisch",
+          "lang.englishLevel": "Vollständige Berufskompetenz",
+          "edu.title": "Bildung & <em>Zertifikate</em>",
+          "edu.eduLabel": "Bildung",
+          "edu.certsLabel": "Zertifikate",
+          "edu.isi.title": "Ingenieurzyklus — IDISC",
+          "edu.isi.org":
+            "Institut Supérieur d'Informatique, Tunis – El Manar (ISI)",
+          "edu.isi.desc":
+            "Infrastruktur- und Kommunikationsdienste. Letztes Jahr — derzeit Full-Stack-Entwicklerin bei StartNow.",
+          "edu.bachelor.title": "Bachelor in Informatik-Systemtechnik",
+          "edu.bachelor.org":
+            "ISMAI – Höheres Institut für Angewandte Mathematik und Informatik, Kairouan",
+          "edu.bachelor.desc":
+            "Softwaretechnik, Algorithmen, Systemarchitektur und angewandte Mathematik.",
+          "edu.bachelor.badge": "🏆 Jahrgangsbeste — Hauptfach",
+          "exp.title": "<em>Erfahrung</em>",
+          "exp.filterAll": "Alle",
+          "exp.filterCurrent": "Aktuell",
+          "exp.filterInternship": "Praktika",
+          "exp.filterAcademic": "Akademisch",
+          "exp.filterPersonal": "Persönlich",
+          "exp.current": "Aktuell",
+          "exp.internship": "Praktikum",
+          "exp.academic": "Akademisch",
+          "exp.personal": "Persönlich",
+          "exp.e0.title": "StartNow — Gebäudemanagementsystem (BMS)",
+          "exp.e0.meta": "Full-Stack-Entwicklerin · Apr 2026 – Heute · Tunis",
+          "exp.e0.desc":
+            "Multi-Rollen Web- & Mobile-Plattform für Immobilienverwaltung.",
+          "exp.e0.b1":
+            "React.js Multi-Modul-Frontend mit Redux Toolkit, React Query, AG Grid und Formik.",
+          "exp.e0.b2":
+            "JWT-Authentifizierung mit RBAC-Menüs und Axios-Interceptors.",
+          "exp.e0.b3":
+            "Echtzeit-Chat-Modul via WebSocket (Socket.io) mit Push-Benachrichtigungen.",
+          "exp.e0.b4":
+            "KI-Chatbot, Excel/CSV-Import, OCR für Besucher und PDF-Generierung.",
+          "exp.e0.b5":
+            "Internationalisierung in 6 Sprachen mit RTL-Unterstützung und Flutter-App.",
+          "exp.epfe.title": "PFE — B2B-Lead-Marketplace (KI & ML-Plattform)",
+          "exp.epfe.meta": "Abschlusspraktikum · 2026 · 4 Monate",
+          "exp.epfe.desc":
+            "Multi-Sektor B2B-Marktplatz für Lead-Erfassung, Anreicherung, ML-Scoring und KI-Agenten.",
+          "exp.epfe.b1":
+            "Multi-Quellen-Scraping, Anreicherung mit data.gouv.fr und LLM-Sentiment-Analyse.",
+          "exp.epfe.b2":
+            "XGBoost-Scoring-Modell v1→v4 (17 Features, Bayes-Smoothing, Versionierung).",
+          "exp.epfe.b3":
+            "ML-Empfehlungsengine mit SGDClassifier und Haversine-Distanz.",
+          "exp.epfe.b4":
+            "OpenAI GPT-4o für E-Mail-Generierung, OCR und KI-Agenten.",
+          "exp.epfe.b5": "Multi-Rollen Flutter-App mit Redis und PostgreSQL.",
+          "exp.e1.title": "StartNow — Familienverwaltungsmodul",
+          "exp.e1.meta": "Sommerpraktikum · 2025 · 1 Monat · Tunis",
+          "exp.e1.desc":
+            "Webanwendung für Schulen zur Familienverwaltung und Stipendienberechnung.",
+          "exp.e1.b1":
+            "MySQL-Schema für Familienprofile, Treffen und Bewertungen.",
+          "exp.e1.b2":
+            "Spring Boot REST-API mit automatischer Punktberechnung.",
+          "exp.e1.b3":
+            "React.js-Frontend mit Anwesenheitsrastern und exportierbaren Berichten.",
+          "exp.e2.title": "CompassIT — Multi-Unternehmens-Paketverwaltung",
+          "exp.e2.meta": "Sommerpraktikum · 2025 · Hammam Sousse",
+          "exp.e2.desc":
+            "SaaS-Paketverwaltungsplattform mit Multi-Tenant-Architektur.",
+          "exp.e2.b1": "Multi-Tenant Node.js/Express mit Datenisolierung.",
+          "exp.e2.b2":
+            "QR-Code-Generierung pro Paket mit Echtzeit-Statusaktualisierung.",
+          "exp.e2.b3": "Echtzeit-GPS-Tracking im React-Dashboard.",
+          "exp.e3.title": "Gebärdensprachenerkennungssystem",
+          "exp.e3.meta": "Akademisches Projekt · Feb 2024 – Apr 2024",
+          "exp.e3.desc":
+            "Dreilagiges System zur Gebärdensprachenerkennung in Echtzeit.",
+          "exp.e3.b1": "IoT: Raspberry Pi + Kamera.",
+          "exp.e3.b2": "KI: TensorFlow/Keras CNN.",
+          "exp.e3.b3": "Web: Flask-API mit Sprachsynthese.",
+          "exp.e4.title": "Multiplayer-Galgenmännchen mit BST",
+          "exp.e4.meta": "Akademisches Projekt · Jan 2024 – Feb 2024",
+          "exp.e4.desc":
+            "Multiplayer-Galgenmännchen in C mit BST, TCP und Webinterface.",
+          "exp.e4.b1": "BST in C, drei Schwierigkeitsstufen.",
+          "exp.e4.b2": "Multithreaded TCP-Server mit SQLite.",
+          "exp.e4.b3": "Python/Flask-Webinterface unter Linux.",
+          "exp.e5.title": "CompassIT — Olivenöl-Klassifizierung",
+          "exp.e5.meta": "Abschlusspraktikum · 2023 · Hammam Sousse",
+          "exp.e5.desc":
+            "Web- und Mobile-Plattform für Olivenöl-Qualitätszertifizierung.",
+          "exp.e5.b1": "FastAPI-Backend nach internationalen Standards.",
+          "exp.e5.b2": "Angular-App für Labore, Flutter/Dart für Feldagenten.",
+          "exp.e5.b3": "Einzigartige QR-Codes in MySQL für Rückverfolgbarkeit.",
+          "exp.e6.title": "ItGateTraining — COVID-19-Röntgenklassifizierer",
+          "exp.e6.meta": "Sommerpraktikum · 2022 · Hammam Sousse",
+          "exp.e6.desc":
+            "KI-System zur automatischen COVID-19-Erkennung aus Röntgenbildern.",
+          "exp.e6.b1": "Bildvorverarbeitung mit Augmentierung.",
+          "exp.e6.b2": "VGG CNN in TensorFlow/Keras, SQLite.",
+          "exp.e6.b3": "Flask-Interface mit Aktivierungskarten.",
+          "exp.e7.title": "Persönlicher Finanz-Tracker",
+          "exp.e7.meta": "Persönliches Projekt · Mär 2022 – Jun 2022",
+          "exp.e7.desc":
+            "Full-Stack-Webanwendung für Finanzmanagement mit prädiktiver Analyse.",
+          "exp.e7.b1": "Synthetische Datengenerierung in Python.",
+          "exp.e7.b2": "Angular-Frontend, Django REST-Backend.",
+          "exp.e7.b3": "Vorhersagealgorithmen und Budgetwarnungen.",
+          "exp.e8.title": "Mobile Restaurant-Management-App",
+          "exp.e8.meta": "Persönliches Projekt · Apr – Mai 2022",
+          "exp.e8.desc":
+            "Plattformübergreifende mobile App für Restaurantbetrieb.",
+          "exp.e8.b1": "Flutter/Dart für iOS und Android.",
+          "exp.e8.b2": "Flask REST-API für Reservierungen.",
+          "demo.title": "Projekt-<em>Demos</em>",
+          "demo.d1.cat": "Akademisch · 2022",
+          "demo.d1.desc":
+            "CNN-Modell (VGG) zur COVID-19-Erkennung aus Röntgenbildern.",
+          "demo.d2.cat": "Sommerpraktikum · 2025",
+          "demo.d2.desc": "Webanwendung zur Schulverwaltung von Familien.",
+          "demo.d3.cat": "Abschlussprojekt · 2025",
+          "demo.d3.desc":
+            "KI-gestützte Plattform für Aufgabenverwaltung bei OILab.",
+          "demo.d4.cat": "Full-Stack-Entwicklerin · 2026",
+          "demo.d4.desc":
+            "Vollständiges Multi-Rollen-Gebäudemanagementsystem (Super Admin, Admin, Eigentümer, Mieter, Mitarbeiter).",
+          "contact.title": "Kontaktiere <em>mich</em>",
+          "contact.lead":
+            "Software-Ingenieurin auf der Suche nach neuen Möglichkeiten in KI, Full-Stack oder Cloud.",
+          "contact.form.name": "Vollständiger Name",
+          "contact.form.email": "E-Mail",
+          "contact.form.subject": "Betreff",
+          "contact.form.message": "Nachricht",
+          "contact.form.send": "Nachricht senden",
+        },
+      };
+
+      let currentLang = "fr";
+
+      function applyTranslations(lang) {
+        currentLang = lang;
+        const t = i18n[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const k = el.dataset.i18n;
+          if (t[k] !== undefined) el.textContent = t[k];
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+          const k = el.dataset.i18nHtml;
+          if (t[k] !== undefined) el.innerHTML = t[k];
+        });
+        document
+          .querySelectorAll("[data-lang-btn]")
+          .forEach((b) =>
+            b.classList.toggle("active", b.dataset.langBtn === lang),
+          );
+      }
+
+      const root = document.documentElement;
+      const themeBtn = document.getElementById("themeBtn");
+      root.dataset.theme = "dark";
+      themeBtn.textContent = "☀";
+
+      themeBtn.addEventListener("click", () => {
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+        themeBtn.textContent = root.dataset.theme === "dark" ? "☀" : "🌙";
+        localStorage.setItem("fc-theme", root.dataset.theme);
+      });
+
+      document
+        .querySelectorAll("[data-lang-btn]")
+        .forEach((b) =>
+          b.addEventListener("click", () =>
+            applyTranslations(b.dataset.langBtn),
+          ),
+        );
+
+      const pages = {
+        about: "page-about",
+        education: "page-education",
+        experience: "page-experience",
+        demo: "page-demo",
+        contact: "page-contact",
+      };
+
+      function navigate(key) {
+        document
+          .querySelectorAll("[data-nav]")
+          .forEach((x) => x.classList.remove("active"));
+        document
+          .querySelectorAll(`[data-nav="${key}"]`)
+          .forEach((x) => x.classList.add("active"));
+        Object.values(pages).forEach((id) =>
+          document.getElementById(id).classList.remove("active"),
+        );
+        document.getElementById(pages[key]).classList.add("active");
+        document
+          .querySelector(".main")
+          .scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document
+        .querySelectorAll("[data-nav]")
+        .forEach((b) =>
+          b.addEventListener("click", () => navigate(b.dataset.nav)),
+        );
+
+      document.querySelectorAll("[data-filter]").forEach((b) =>
+        b.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-filter]")
+            .forEach((x) => x.classList.remove("active"));
+          b.classList.add("active");
+          const f = b.dataset.filter;
+          document.querySelectorAll(".exp-card").forEach((c) => {
+            c.style.display =
+              f === "all" || c.dataset.category === f ? "" : "none";
+          });
+        }),
+      );
+
+      document.getElementById("cf").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const n = document.getElementById("fn").value,
+          em = document.getElementById("fe").value,
+          s = document.getElementById("fs").value || "Contact from portfolio",
+          m = document.getElementById("fm").value;
+        window.location.href = `mailto:chihaoui.fatma7@gmail.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent("From: " + n + " (" + em + ")\n\n" + m)}`;
+      });
+
+      // Init: French by default
+      applyTranslations("fr");
+    </script>
+  </body>
+</html>
